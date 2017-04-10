@@ -28,10 +28,10 @@
             data: date
         },
         yAxis: {
-            boundaryGap: [200, 300],
+            boundaryGap: [280, 285],
             type: 'value',
-            min: 250,
-            max: 300
+            min: 280,
+            max: 283
         },
         series: [
             {
