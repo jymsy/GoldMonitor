@@ -1,4 +1,4 @@
-!(function(window) {
+!(function(window, $) {
     var element = document.getElementById('content');
     var myChart = echarts.init(element);
 
@@ -102,22 +102,30 @@
     }
 
     function getGoldPrice() {
-        var xmlhttp = new XMLHttpRequest();
-        var result;
+        let xmlhttp = new XMLHttpRequest();
+        let result;
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
                 result = JSON.parse(xmlhttp.responseText);
                 addData(result);
             }
-        }
+        };
         xmlhttp.open("POST", url, true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
         xmlhttp.setRequestHeader("Accept", "*/*");
         xmlhttp.send('queryFlag=2');
     }
+    //添加流水
+    $('#addNewItem').on('click', function () {
+        $('#addNewItemModal').modal();
+    });
+
+    $('#detail-submit').on('click', function () {
+        $('#addNewItemModal').modal('hide');
+    });
     getGoldPrice();
     setInterval(function() {
         getGoldPrice();
 
     }, 60000);
-})(window);
+})(window, jQuery);
