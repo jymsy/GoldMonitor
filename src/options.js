@@ -119,7 +119,17 @@
     $('#addNewItem').on('click', function () {
         $('#addNewItemModal').modal();
     });
+    //新增购买流
+    $('#create-bill').on('click', () => {
+        $('#createBillModal').modal();
+    })
+    $('#bill-submit').on('click', () => {
+        $('#createBillModal').modal('hide');
+        let startDate = $('#start-date').val()
+        $.ajax({
 
+        })
+    })
     $('#detail-submit').on('click', function () {
         $('#addNewItemModal').modal('hide');
     });
@@ -127,5 +137,5 @@
     setInterval(function() {
         getGoldPrice();
 
-    }, 60000);
+    }, 55000);
 })(window, jQuery);

@@ -4,31 +4,12 @@
     <meta charset="utf-8">
     <title>Gold Monitor</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <style>
-        .sidebar-sticky {
-            position: -webkit-sticky;
-            position: sticky;
-            top: 45px; /* Height of navbar */
-            height: calc(100vh - 48px);
-            padding-top: .5rem;
-            overflow-x: hidden;
-            overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-        }
-        .sidebar {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 100; /* Behind the navbar */
-            padding: 0;
-            box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-        }
-    </style>
+    <link rel="stylesheet" href="css/options.css">
 </head>
 <body>
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap">
     <form class="form-inline">
-        <button class="btn btn-outline-success" type="button" style="z-index: 999">新增购买流</button>
+        <button id="create-bill" class="btn btn-outline-success" type="button" style="z-index: 999">新增购买流</button>
     </form>
 </nav>
 <div class="container-fluid">
@@ -97,6 +78,30 @@
             </div>
             <div class="modal-footer">
                 <button id="detail-submit" type="button" class="btn btn-primary">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="createBillModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">新增购买流</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="price" class="col-form-label">开始日期:</label>
+                        <input type="text" class="form-control" id="start-date">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="bill-submit" type="button" class="btn btn-primary">提交</button>
             </div>
         </div>
     </div>
